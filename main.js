@@ -29,40 +29,37 @@ function fishBtnClicked() {
     let randNum = Math.random();
     if (randNum < 0.7) {
       numCod++;
-      numCodSpan.innerHTML = numCod;
-      resultImg.src = 'img/Raw-Cod.png';
+      FishyFish(numCod, numCodSpan,'Raw-Cod');
     } else if (randNum < 0.9) {
       numSalmon++;
-      numSalmonSpan.innerHTML = numSalmon;
-      resultImg.src = 'img/Raw-Salmon.png';
+      FishyFish(numSalmon, numSalmonSpan,'Raw-Salmon');
     } else if (randNum < 0.95) {
       numTropical++;
-      numTropicalSpan.innerHTML = numTropical;
-      resultImg.src = 'img/Tropical-Fish.png';
+      FishyFish(numTropical, numTropicalSpan,'Tropical-Fish');
     } else {
       numPuffer++;
-      numPufferSpan.innerHTML = numPuffer;
-      resultImg.src = 'img/Pufferfish.png';
+      FishyFish(numPuffer, numPufferSpan,'Pufferfish');
     }
   } else if (character === 'alex') {
     // ALEX: Cod 10%, Salmon 10%, Tropical 30%, Puffer 50%
     let randNum = Math.random();
     if (randNum < 0.1) {
-      numCod++;
-      numCodSpan.innerHTML = numCod;
-      resultImg.src = 'img/Raw-Cod.png';
+      FishyFish(numCod, numCodSpan,'Raw-Cod');
     } else if (randNum < 0.2) {
-      numSalmon++;
-      numSalmonSpan.innerHTML = numSalmon;
-      resultImg.src = 'img/Raw-Salmon.png';
+      FishyFish(numSalmon, numSalmonSpan,'Raw-Salmon');
     } else if (randNum < 0.5) {
-      numTropical++;
-      numTropicalSpan.innerHTML = numTropical;
-      resultImg.src = 'img/Tropical-Fish.png';
+      FishyFish(numTropical, numTropicalSpan,'Tropical-Fish');
     } else {
-      numPuffer++;
-      numPufferSpan.innerHTML = numPuffer;
-      resultImg.src = 'img/Pufferfish.png';
+      FishyFish(numPuffer, numPufferSpan,'Pufferfish');
     }
   }
+}
+
+
+
+function FishyFish(Fish, Span, img) {
+  Fish++
+  Span.innerHTML = Fish;
+  resultImg.src = `img/${img}.png`;
+  console.log(Fish)
 }
