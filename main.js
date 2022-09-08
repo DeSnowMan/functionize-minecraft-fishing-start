@@ -15,6 +15,8 @@ let numSalmon = 0;
 let numTropical = 0;
 let numPuffer = 0;
 
+
+
 // Add Event Listener to Calculate Button
 fishBtn.addEventListener('click', fishBtnClicked);
 
@@ -26,40 +28,36 @@ function fishBtnClicked() {
   // Catch fish based on character
   if (character === 'steve') {
     // STEVE: Cod 70%, Salmon 20%, Tropical 5%, Puffer 5%
-    let randNum = Math.random();
-    if (randNum < 0.7) {
-      numCod++;
-      FishyFish(numCod, numCodSpan,'Raw-Cod');
-    } else if (randNum < 0.9) {
-      numSalmon++;
-      FishyFish(numSalmon, numSalmonSpan,'Raw-Salmon');
-    } else if (randNum < 0.95) {
-      numTropical++;
-      FishyFish(numTropical, numTropicalSpan,'Tropical-Fish');
-    } else {
-      numPuffer++;
-      FishyFish(numPuffer, numPufferSpan,'Pufferfish');
-    }
+    FishyFish(0.7, 0.9, 0.95)
   } else if (character === 'alex') {
     // ALEX: Cod 10%, Salmon 10%, Tropical 30%, Puffer 50%
-    let randNum = Math.random();
-    if (randNum < 0.1) {
-      FishyFish(numCod, numCodSpan,'Raw-Cod');
-    } else if (randNum < 0.2) {
-      FishyFish(numSalmon, numSalmonSpan,'Raw-Salmon');
-    } else if (randNum < 0.5) {
-      FishyFish(numTropical, numTropicalSpan,'Tropical-Fish');
-    } else {
-      FishyFish(numPuffer, numPufferSpan,'Pufferfish');
-    }
+    FishyFish(0.1, 0.2, 0.5)
+  } else if (character === 'villager') { 
+    FishyFish(0.25, 0.5, 0.75)
   }
+
 }
 
 
 
-function FishyFish(Fish, Span, img) {
-  Fish++
-  Span.innerHTML = Fish;
-  resultImg.src = `img/${img}.png`;
-  console.log(Fish)
+function FishyFish(P1, P2, P3) {
+  let randNum = Math.random();
+  if (randNum < P1) {
+    numCod++;
+    resultImg.src = `img/Raw-Cod.png`;
+    numCodSpan.innerHTML = numCod;
+  } else if (randNum < P2) {
+    numSalmon++;
+    resultImg.src = `img/Raw-Salmon.png`;
+    numSalmonSpan.innerHTML = numSalmon;
+  } else if (randNum < P3) {
+    numTropical++;
+    resultImg.src = `img/Tropical-Fish.png`;
+    numTropicalSpan.innerHTML = numTropical;
+  } else {
+    numPuffer++;
+    resultImg.src = `img/Pufferfish.png`;
+    numPufferSpan.innerHTML = numPuffer;
+  }
+
 }
